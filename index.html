@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UNISIGHT · Education & Gender Equality for 2050</title>
+  <meta name="description" content="UNISIGHT helps young people understand SDG 4 (Quality Education) and SDG 5 (Gender Equality), imagine 2050 and take action.">
+  <meta name="theme-color" content="#F8FAFC">
+  <link rel="icon" href="assets/img/logo.webp" type="image/webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Loader -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <img src="assets/img/logo.webp" alt="" class="loader__logo">
+    <span class="loader__bar"><span></span></span>
+  </div>
+
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <a href="#home" class="brand" aria-label="UNISIGHT home">
+      <img src="assets/img/logo.webp" alt="UNISIGHT logo" class="brand__logo">
+      <span class="brand__text">
+        <strong data-setting="site_title">UNISIGHT</strong>
+        <small data-setting="tagline">Education &amp; Gender Equality for 2050</small>
+      </span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#home" data-ui="nav_home">Home</a>
+      <a href="#sdg" data-ui="nav_sdg">SDGs</a>
+      <a href="#projections" data-ui="nav_projections">2050</a>
+      <a href="#whatif" data-ui="nav_whatif">What If?</a>
+      <a href="#action" data-ui="nav_action">Take Action</a>
+      <a href="#game" data-ui="nav_game">Game</a>
+      <a href="#legal" data-ui="nav_legal">Legal</a>
+      <a href="#meet" data-ui="nav_meet">Meet Us</a>
+    </nav>
+    <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="nav">
+      <span class="sr-only" data-ui="nav_menu">Menu</span><i></i><i></i>
+    </button>
+  </header>
+
+  <main>
+    <!-- HOME -->
+    <section class="hero" id="home">
+      <canvas id="hero-canvas" class="hero__canvas" aria-hidden="true"></canvas>
+      <div class="hero__content container">
+        <p class="kicker reveal" data-setting="hero_kicker">SDG 4 · SDG 5 · Vision 2050</p>
+        <h1 class="hero__title reveal split" data-setting="hero_title">See the challenge. Shape the future.</h1>
+        <p class="hero__subtitle reveal" data-setting="hero_subtitle"></p>
+        <div class="hero__actions reveal">
+          <a href="#sdg" class="btn btn--primary magnetic" data-ui="hero_cta_primary">Explore the goals</a>
+          <a href="#whatif" class="btn btn--ghost magnetic" data-ui="hero_cta_secondary">Try What If?</a>
+        </div>
+      </div>
+      <div class="stats container" id="stats"></div>
+      <a href="#sdg" class="scroll-hint" aria-label="Scroll down"><span data-ui="hero_scroll">Scroll</span><i></i></a>
+    </section>
+
+    <!-- SDG -->
+    <section class="section" id="sdg">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow" data-ui="sdg_eyebrow">01 — The goals</p>
+          <h2 data-ui="sdg_title">Learning and equality, together</h2>
+        </header>
+        <div class="cards cards--sdg" data-section="SDG"></div>
+      </div>
+    </section>
+
+    <!-- PROJECTIONS -->
+    <section class="section section--tint" id="projections">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow" data-ui="proj_eyebrow">02 — Projections 2050</p>
+          <h2 data-ui="proj_title">Where are we heading?</h2>
+        </header>
+
+        <div class="chart-card reveal">
+          <div class="chart-card__head">
+            <h3 id="chart1-title">Average years of schooling</h3>
+            <div class="segmented" role="group" aria-label="Scenario">
+              <button class="is-active" data-scenario="all" data-ui="chart_btn_all">All scenarios</button>
+              <button data-scenario="trend" data-ui="chart_btn_trend">Trend</button>
+              <button data-scenario="action" data-ui="chart_btn_action">With action</button>
+              <button data-scenario="stagnation" data-ui="chart_btn_stagnation">Stagnation</button>
+            </div>
+          </div>
+          <div class="chart-wrap chart-wrap--lg"><canvas id="chart-schooling" aria-label="Line chart of average years of schooling 2000 to 2050"></canvas></div>
+          <div class="year-explorer">
+            <label for="year-slider" data-ui="chart_slider">Explore a year</label>
+            <input type="range" id="year-slider" min="2020" max="2050" step="1" value="2050">
+            <output id="year-output" class="year-output">2050</output>
+            <div class="year-values" id="year-values"></div>
+          </div>
+        </div>
+
+        <div class="cards cards--proj" data-section="Projections 2050"></div>
+
+        <div class="chart-card reveal">
+          <div class="chart-card__head"><h3 id="chart2-title">Share of women (%)</h3></div>
+          <div class="chart-wrap"><canvas id="chart-gender" aria-label="Bar chart of the share of women in key areas compared with parity"></canvas></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT IF? -->
+    <section class="section" id="whatif">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow" data-ui="whatif_eyebrow">03 — What If?</p>
+          <h2 data-ui="whatif_title">Your choices, their 2050</h2>
+          <p class="section__intro" data-ui="whatif_intro"></p>
+        </header>
+        <div class="story-tabs reveal" id="story-tabs" role="tablist" aria-label="Stories"></div>
+        <div class="story reveal" id="story" aria-live="polite">
+          <div class="story__main" id="story-main"></div>
+          <aside class="story__meters">
+            <div class="meter"><div class="meter__head"><span data-ui="whatif_education">Education</span><b id="m-edu">0</b></div><div class="meter__track"><i id="m-edu-bar" class="meter__bar meter__bar--edu"></i></div></div>
+            <div class="meter"><div class="meter__head"><span data-ui="whatif_equality">Equality</span><b id="m-eq">0</b></div><div class="meter__track"><i id="m-eq-bar" class="meter__bar meter__bar--eq"></i></div></div>
+            <div class="story__dots" id="story-dots" aria-hidden="true"></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAKE ACTION -->
+    <section class="section section--tint" id="action">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow" data-ui="action_eyebrow">04 — Take action</p>
+          <h2 data-ui="action_title">Change starts where you are</h2>
+        </header>
+        <div class="segmented segmented--filters reveal" id="action-filters" role="group" aria-label="Filter actions by place"></div>
+        <div class="action-layout">
+          <div class="cards cards--action" data-section="Take Action"></div>
+          <aside class="pledge-panel reveal">
+            <div class="ring">
+              <svg viewBox="0 0 120 120" aria-hidden="true">
+                <circle cx="60" cy="60" r="52" class="ring__track"/>
+                <circle cx="60" cy="60" r="52" class="ring__fill" id="ring-fill"/>
+              </svg>
+              <div class="ring__label"><strong id="pledge-count">0</strong><span id="pledge-total">/ 0</span></div>
+            </div>
+            <div class="chart-wrap chart-wrap--sm"><canvas id="chart-pledges" aria-label="Your pledges by category"></canvas></div>
+            <div class="pledge-panel__btns">
+              <button class="btn btn--primary btn--sm" id="share-btn" data-ui="pledge_share">Share this page</button>
+              <button class="btn btn--ghost btn--sm" id="reset-btn" data-ui="pledge_reset">Reset pledges</button>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- GAME -->
+    <section class="section section--dark" id="game">
+      <div class="container game-layout">
+        <header class="section__head reveal">
+          <p class="eyebrow" data-ui="game_eyebrow">05 — Mini game</p>
+          <h2 data-ui="game_title">Catch the knowledge</h2>
+          <p class="lead" data-ui="game_intro"></p>
+          <ul class="legend" id="game-legend"></ul>
+        </header>
+        <div class="game reveal">
+          <div class="game__hud">
+            <span><small data-ui="game_score">Score</small><strong id="g-score">0</strong></span>
+            <span><small data-ui="game_best">Best</small><strong id="g-best">0</strong></span>
+            <span><small data-ui="game_lives">Lives</small><strong id="g-lives">♥♥♥</strong></span>
+            <button class="icon-btn" id="g-pause" aria-label="Pause" title="Pause (P)" data-ui-title="game_pause">❚❚</button>
+          </div>
+          <div class="game__stage">
+            <canvas id="game-canvas" width="640" height="440" aria-label="Catch the knowledge game"></canvas>
+            <div class="game__overlay is-visible" id="g-overlay">
+              <h3 id="g-ov-title" data-ui="game_title">Catch the knowledge</h3>
+              <p id="g-ov-text"></p>
+              <button class="btn btn--primary" id="g-start" data-ui="game_start">Start game</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEGAL -->
+    <section class="section" id="legal">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow" data-ui="legal_eyebrow">06 — Legal</p>
+          <h2 data-ui="legal_title">Rights and responsibilities</h2>
+        </header>
+        <div class="accordion" data-section="Legal"></div>
+
+        <div class="references reveal" id="references">
+          <div class="references__head">
+            <h3 data-ui="references_title">References (APA 7th edition)</h3>
+            <button class="btn btn--ghost btn--sm" id="copy-refs" data-ui="references_copy">Copy references</button>
+          </div>
+          <ol class="references__list" id="references-list"></ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEET US -->
+    <section class="section" id="meet">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow" data-ui="meet_eyebrow">07 — Meet us</p>
+          <h2 data-ui="meet_title">The people behind UNISIGHT</h2>
+        </header>
+        <div class="meet">
+          <figure class="video reveal">
+            <div class="video__frame">
+              <video id="meet-video" playsinline preload="metadata" controls>
+                <source src="assets/video/meet-us.mp4" type="video/mp4" data-setting-src="video">
+              </video>
+              <button class="video__play" id="video-play"><span class="video__icon">▶</span><span data-ui="video_play">Play our presentation</span></button>
+            </div>
+            <figcaption data-setting="video_caption">Our presentation video</figcaption>
+          </figure>
+          <div class="meet__cards" data-section="Meet Us"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <img src="assets/img/logo.webp" alt="" class="footer__logo">
+      <p data-setting="footer_text">© 2026 UNISIGHT</p>
+      <a href="#home" class="footer__top" data-ui="back_to_top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Libraries (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <!-- Offline copy of the Excel database (fallback) -->
+  <script src="js/data.js"></script>
+  <!-- App -->
+  <script src="js/three-scene.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/whatif.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
